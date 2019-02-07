@@ -23,3 +23,8 @@ ggplot(data = babies) +
   #legend("bottomright", legend = c("smokers", "nonsmokers"))
 ```
 
+```{r}
+ggplot(data = babies) + geom_point(mapping = aes(x = mht, y = bwtoz), color = "blue", position = "jitter") + geom_smooth(mapping = aes(x = mht, y = bwtoz), color = "pink") + facet_wrap(~ time)
+```
+###Erin's Findings
+I, Erin Omyer, created a scatterplot between the Mother's height in comparison to the birth weight of their baby, but including the overall outlook at the number of times the mother has smoked. In the graph on the left, it shows the mother's that haven't ever smoked, showing a pattern of generally an average birth weigth. But, when you look at as the number of cigarettes a person smokes in a day, then the birth weight dropped. By displaying the scatterplot with the smooth line, it allows viewers to see the pattern easier with the line and the high number of people among the sample.
