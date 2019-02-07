@@ -35,7 +35,9 @@ ggplot(data = babies)+
   geom_smooth(mapping = aes(x = gestation, y = bwtoz),se = FALSE)+
   labs(title = "Birthweight & Gestation length for Smokers vs. Nonsmokers")
 ```
-
+###Question Conclusion
+1. Mother's who smoke during pregnancy, in comparison, to mother's who don't smoke share similar findings. In our study, we created a bar graph between the two variables, resembling the weak correlation between smoking and not smoking during pregnancy. From the data, people who smoke during pregnancy have a slight higher chance of premature births. 
+2. In our second graph, we created a scatterplot between gestational age and the weight of the baby when born. From our visualization, the relationship between smokers and non-smokers for the two variable share similar results. As gestation age increases, the weight of the baby increases. From the graph, smokers have a higher weight of birth as the gestational age increases. But, the data is similar to each other, so the correlation isn't strong. 
 ```{r}
 ggplot(data = babies) + geom_point(mapping = aes(x = mht, y = bwtoz), color = "blue", position = "jitter") + geom_smooth(mapping = aes(x = mht, y = bwtoz), color = "pink") + facet_wrap(~ time) + labs(title = "Mother's Height compared with Birthweight of Their Baby")
 ```
