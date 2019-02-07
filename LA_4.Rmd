@@ -1,0 +1,19 @@
+---
+title: "LA_4"
+author: "Adam Hayes, Erin Omyer, Jasmine Sanchez, and Richard Park"
+date: "2/6/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(tidyverse)
+babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Science-repo/master/babies2a.dat")
+babies <- rename(babies, bwtoz = `bwt/oz`)
+babies <- na.omit(babies)
+babies
+```
+
