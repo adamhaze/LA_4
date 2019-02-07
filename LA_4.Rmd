@@ -51,3 +51,14 @@ ggplot(data = babies) +
 
 ###Jasmine's Findings:
 I found that by comparing the birthweights of babies to the number of cigarettes smoked a day for current and past smokers,there is a pattern that may become apparent while analyzing the prematurity of those births. There is a clear distinction between the number of birth weights recorded as the number of cigarettes smoked per day increases. Now including the premature factor; premature birth is typically associated lower birth weights, this graph supports that because we can see the color differentiation between premature births and births carried to term. I noticed that the increase in births carried to term were most common in non-smokers. However, the one distinction would be where we see a larger grouping of moderate birthweights with smokers who reported smoking 5 cigarettes a day. This information led me to see the decrease in premature weights as well with past smokers.
+
+```{r}
+ggplot(data = babies)+
+  geom_point(mapping = aes(x = bwtoz, y = mpregwt))+
+  geom_smooth(method = loess, mapping = aes(x = bwtoz, y = mpregwt), se = FALSE)+
+  facet_wrap(~smoke)+
+  labs(title = "Babies body weight in ounces versus mother's pregnancy weight")
+```
+
+###Richard's Findings
+I, Richard Park, created a scatterplot comparing the Mother's pregnancy weight and the babies body weight (in ounces) at birth. I divided the graph into two seperate facets to help me compare mothers who smoked versus mothers who didn't smoke. In the graph containing the mothers who smoked(AKA the side labeled 1), my trendline showed that the babies birth weight eventually levels after the mother's pregnancy weight reaches a little over 130 pounds. However, in the graph containing the mothers who didn't smoke, the trendline never levels off at any point. For the first half, both trendlines closely resembled each other and both had a negative slope. This suggests that smoking might have an affect on a babies birth weight when the mother's pregnancy weight reaches 130 pounds, meaning babies can't get bigger/heavier after this threshold.
