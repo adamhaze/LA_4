@@ -28,3 +28,11 @@ ggplot(data = babies) + geom_point(mapping = aes(x = mht, y = bwtoz), color = "b
 ```
 ###Erin's Findings
 I, Erin Omyer, created a scatterplot between the Mother's height in comparison to the birth weight of their baby, but including the overall outlook at the number of times the mother has smoked. In the graph on the left, it shows the mother's that haven't ever smoked, showing a pattern of generally an average birth weigth. But, when you look at as the number of cigarettes a person smokes in a day, then the birth weight dropped. By displaying the scatterplot with the smooth line, it allows viewers to see the pattern easier with the line and the high number of people among the sample.
+
+```{r}
+ggplot(data = babies) +
+  geom_point(mapping = aes(x = bwtoz, y = number, color = Premature))
+
+```
+## Jasmine's Findings:
+I found that by comparing the birthweights of babies to the number of cigarettes smoked a day for current and past smokers,there is a pattern that may become apparent while analyzing the prematurity of those births. There is a clear distinction between the number of birth weights recorded as the number of cigarettes smoked per day increases. Now including the premature factor; premature birth is typically associated lower birth weights, this graph supports that because we can see the color differentiation between premature births and births carried to term. I noticed that the increase in births carried to term were most common in non-smokers. However, the one distinction would be where we see a larger grouping of moderate birthweights with smokers who reported smoking 5 cigarettes a day. This information led me to see the decrease in premature weights as well with past smokers.
