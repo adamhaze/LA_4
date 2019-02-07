@@ -23,6 +23,7 @@ babies
 
 These questions are important because in this day and age, with so much new medical information and statistics people are much more concerned with pregnant mothers smoking than they were even 50 years ago.  It is now a widely accepted opinion that women who are pregnant should not smoke, so it is interesting to investigate the actual effects on the newbors for women who smoke during pregnancy vs. those who don't smoke.
 
+
 ```{r}
 ggplot(data = babies) +
   geom_bar(mapping = aes(x = Premature, y = ..prop.., group = 1, fill = smoke))+
@@ -64,3 +65,6 @@ ggplot(data = babies)+
 
 ###Richard's Findings
 I, Richard Park, created a scatterplot comparing the Mother's pregnancy weight and the babies body weight (in ounces) at birth. I divided the graph into two seperate facets to help me compare mothers who smoked versus mothers who didn't smoke. In the graph containing the mothers who smoked(AKA the side labeled 1), my trendline showed that the babies birth weight eventually levels after the mother's pregnancy weight reaches a little over 130 pounds. However, in the graph containing the mothers who didn't smoke, the trendline never levels off at any point. For the first half, both trendlines closely resembled each other and both had a negative slope. This suggests that smoking might have an affect on a babies birth weight when the mother's pregnancy weight reaches 130 pounds, meaning babies can't get bigger/heavier after this threshold.
+
+###Overall Contribution
+As a team, we divided the work up evenly among all of us. For the team graph, Adam and Richard worked together to create a visualization to answer the two questions. Then, Erin answered the findings from the graph, then Jasmine provided the recommendation from our findings. Everyone completed their individual parts on their own and submitted to the lab. Richard asnwered the preliminary conclusion from Adam's visualization that he formed. 
