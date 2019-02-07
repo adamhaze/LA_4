@@ -15,5 +15,11 @@ babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Scien
 babies <- rename(babies, bwtoz = `bwt/oz`)
 babies <- na.omit(babies)
 babies
+
+ggplot(data = babies) +
+  geom_bar(mapping = aes(x = Premature, y = ..prop.., group = 1),fill = "red")+
+  facet_wrap(~smoke)+
+  labs(title = "Premature Births for those who Smoke During Pregnancy vs. Those Who Don't")
+  #legend("bottomright", legend = c("smokers", "nonsmokers"))
 ```
 
