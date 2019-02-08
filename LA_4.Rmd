@@ -42,8 +42,7 @@ ggplot(data = babies)+
 2. In our second graph, we created a scatterplot between gestational age and the weight of the baby when born. From our visualization, the relationship between smokers and non-smokers for the two variable share similar results. As gestation age increases, the weight of the baby increases. From the graph, smokers have a higher weight of birth as the gestational age increases. But, the data is similar to each other, so the correlation isn't strong. 
 
 ###Recommendation
-
-###Differences Between Smokers and Nonsmokers during pregnancy
+Our recommendation for a course of action is to conduct studies in the health of the children born to smokers and non smokers as they increase in age. By evaluating the health effects on the children as they get older, we are able to tell more specific information and detail for the effects of smoking during pregnancy. Such information would include a child having better or worse respitory issues such as asthma, or other birth defects that may not appear at birth, but over a longer period of time. 
 
 ```{r}
 ggplot(data = babies)+
@@ -57,11 +56,10 @@ ggplot(data = babies)+
   labs(x = "income", title = "Family Income For Nonsmokers(left) vs. Smokers(right)")
 ```
 
-######Variables that are similar and different between smokers and nonsmokers
+#####Variables that are similar and different between smokers and nonsmokers
 As a team, we found that the smokers and nonsmokers had some similarities. For example, as previously stated, the two variables comparing gestational age and the weight of the baby when it was born was similar. When we created a scatterplot, it showed that as gestation age increases, the weight of the baby also increases. This was uniform across both smokers and nonsmokers. Furthermore, the mother's age when they gave birth was another variable that was similar among both smokers and nonsmokers because in both groups, most women gave birth between the ages of 20-30.
 While there was similiraties, there were also a lot of differences. For instance, when comparing the Father's education level for smokers and nonsmokers, you can see that there is higher proportion of education in nonsmokers vs nonsmokers.
 
-###Individual Findings
 
 ```{r}
 ggplot(data = babies) + geom_point(mapping = aes(x = mht, y = bwtoz), color = "blue", position = "jitter") + geom_smooth(mapping = aes(x = mht, y = bwtoz), color = "pink") + facet_wrap(~ time) + labs(title = "Mother's Height compared with Birthweight of Their Baby")
