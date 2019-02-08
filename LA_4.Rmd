@@ -57,7 +57,9 @@ ggplot(data = babies)+
   labs(x = "income", title = "Family Income For Nonsmokers(left) vs. Smokers(right)")
 ```
 
-###Why
+######Variables that are similar and different between smokers and nonsmokers
+As a team, we found that the smokers and nonsmokers had some similarities. For example, as previously stated, the two variables comparing gestational age and the weight of the baby when it was born was similar. When we created a scatterplot, it showed that as gestation age increases, the weight of the baby also increases. This was uniform across both smokers and nonsmokers. Furthermore, the mother's age when they gave birth was another variable that was similar among both smokers and nonsmokers because in both groups, most women gave birth between the ages of 20-30.
+While there was similiraties, there were also a lot of differences. For instance, when comparing the Father's education level for smokers and nonsmokers, you can see that there is higher proportion of education in nonsmokers vs nonsmokers.
 
 ###Individual Findings
 
