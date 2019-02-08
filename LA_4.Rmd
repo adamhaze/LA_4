@@ -28,17 +28,39 @@ These questions are important because in this day and age, with so much new medi
 ggplot(data = babies) +
   geom_bar(mapping = aes(x = Premature, y = ..prop.., group = 1, fill = smoke))+
   facet_wrap(~smoke)+
-  labs(title = "Premature Births for those who Smoke During Pregnancy vs. Those Who Don't")
+  labs(title = "Premature Births for Smokers(right) vs. Nonsmokers(left)")
 
 ggplot(data = babies)+
   geom_point(mapping = aes(x = gestation, y = bwtoz, color = smoke))+
   facet_wrap(~time)+
   geom_smooth(mapping = aes(x = gestation, y = bwtoz),se = FALSE)+
-  labs(title = "Birthweight & Gestation length for Smokers vs. Nonsmokers")
+  labs(title = "Birthweight & Gestation length for Smokers(right) vs. Nonsmokers(left)")
 ```
+
 ###Question Conclusion
 1. Mother's who smoke during pregnancy, in comparison, to mother's who don't smoke share similar findings. In our study, we created a bar graph between the two variables, resembling the weak correlation between smoking and not smoking during pregnancy. From the data, people who smoke during pregnancy have a slight higher chance of premature births. 
 2. In our second graph, we created a scatterplot between gestational age and the weight of the baby when born. From our visualization, the relationship between smokers and non-smokers for the two variable share similar results. As gestation age increases, the weight of the baby increases. From the graph, smokers have a higher weight of birth as the gestational age increases. But, the data is similar to each other, so the correlation isn't strong. 
+
+###Recommendation
+
+###Differences Between Smokers and Nonsmokers during pregnancy
+
+```{r}
+ggplot(data = babies)+
+  geom_bar(mapping = aes(x = ded, y = ..prop.., group = 1), fill = "red")+
+  facet_wrap(~smoke)+
+  labs(x = "Father's education level", title = "Father's Education Levels in Newborns from Nonsmokers(left) and Smokers(right)")
+
+ggplot(data = babies)+
+  geom_bar(mapping = aes(x = inc, y = ..prop.., group = 1))+
+  facet_wrap(~smoke)+
+  labs(x = "income", title = "Family Income For Nonsmokers(left) vs. Smokers(right)")
+```
+
+###Why
+
+###Individual Findings
+
 ```{r}
 ggplot(data = babies) + geom_point(mapping = aes(x = mht, y = bwtoz), color = "blue", position = "jitter") + geom_smooth(mapping = aes(x = mht, y = bwtoz), color = "pink") + facet_wrap(~ time) + labs(title = "Mother's Height compared with Birthweight of Their Baby")
 ```
