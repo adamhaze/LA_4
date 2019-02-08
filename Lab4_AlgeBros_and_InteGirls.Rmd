@@ -1,0 +1,122 @@
+---
+title: "Lab 4: Smoking and Low Birth Weight?"
+author: "Adam Hayes, Erin Omyer, Jasmine Sanchez, and Richard Park"
+date: "2/6/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(tidyverse)
+babies <- read_csv("https://raw.githubusercontent.com/ervance1/Sp2018-Data-Science-repo/master/babies2a.dat")
+babies <- rename(babies, bwtoz = `bwt/oz`)
+babies <- na.omit(babies)
+```
+
+###Questions and Importance
+1. Do mothers who smoke have increased rates of premature delivery?
+2. Are newborns from mothers who smoke more likely to have smaller birthweights at every gestational age?
+
+These questions are important because in this day and age, with so much new medical information and statistics people are much more concerned with pregnant mothers smoking than they were even 50 years ago.  It is now a widely accepted opinion that women who are pregnant should not smoke, so it is interesting to investigate the actual effects on the newbors for women who smoke during pregnancy vs. those who don't smoke.
+
+
+```{r}
+ggplot(data = babies) +
+  geom_bar(mapping = aes(x = Premature, y = ..prop.., group = 1, fill = smoke))+
+  facet_wrap(~smoke)+
+  labs(title = "Premature Births for Smokers(right) vs. Nonsmokers(left)")
+
+ggplot(data = babies)+
+  geom_point(mapping = aes(x = gestation, y = bwtoz, color = smoke))+
+  facet_wrap(~time)+
+  geom_smooth(method = loess, mapping = aes(x = gestation, y = bwtoz),se = FALSE)+
+  labs(title = "Birthweight & Gestation length for Smokers(right) vs. Nonsmokers(left)")
+```
+
+###Question Conclusion
+1. Mother's who smoke during pregnancy, in comparison, to mother's who don't smoke share similar findings. In our study, we created a bar graph between the two variables, resembling the weak correlation between smoking and not smoking during pregnancy. From the data, people who smoke during pregnancy have a slight higher chance of premature births. 
+2. In our second graph, we created a scatterplot between gestational age and the weight of the baby when born. From our visualization, the relationship between smokers and non-smokers for the two variable share similar results. As gestation age increases, the weight of the baby increases. From the graph, smokers have a higher weight of birth as the gestational age increases. But, the data is similar to each other, so the correlation isn't strong. 
+
+###Recommendation
+Our recommendation for a course of action is to conduct studies in the health of the children born to smokers and non smokers as they increase in age.
+By evaluating the health effects on the children as they get older, we are able to tell more specific information and detail for the effects of smoking during pregnancy.
+Such information would include a child having better or worse respitory issues such as asthma, or other birth defects that may not appear at birth, but over a longer period of time. 
+
+
+
+
+```{r}
+ggplot(data = babies)+
+  geom_bar(mapping = aes(x = ded, y = ..prop.., group = 1), fill = "red")+
+  facet_wrap(~smoke)+
+  labs(x = "Father's education level", title = "Father's Education Levels in Newborns from Nonsmokers(left) and Smokers(right)")
+
+ggplot(data = babies)+
+  geom_bar(mapping = aes(x = inc, y = ..prop.., group = 1))+
+  facet_wrap(~smoke)+
+  labs(x = "income", title = "Family Income For Nonsmokers(left) vs. Smokers(right)")
+```
+
+###Variables that are similar and different between smokers and nonsmokers
+As a team, we found that the smokers and nonsmokers had some similarities. For example, as previously stated, the two variables comparing gestational age and the weight of the baby when it was born was similar. When we created a scatterplot, it showed that as gestation age increases, the weight of the baby also increases. This was uniform across both smokers and nonsmokers. Furthermore, the mother's age when they gave birth was another variable that was similar among both smokers and nonsmokers because in both groups, most women gave birth between the ages of 20-30.
+While there was similiraties, there were also a lot of differences. For instance, when comparing the Father's education level for smokers and nonsmokers, you can see that there is higher proportion of education in nonsmokers vs nonsmokers. This can show that more education for parents leads to less liklihood of the mother smoking during pregnancy. We also found the distribution of average family income to be slightly different for smokers vs. nonsmokers, with the smoker group distributing more towards lower income levels. This shows that people with less money tend to smoke cigarettes while pregnant more often than those who have more money, which most likely stems from cultural and social situations.
+
+
+
+
+```{r}
+ggplot(data = babies) + geom_point(mapping = aes(x = mht, y = bwtoz), color = "blue", position = "jitter") + geom_smooth(method = loess, mapping = aes(x = mht, y = bwtoz), color = "pink") + facet_wrap(~ time) + labs(title = "Mother's Height compared with Birthweight of Their Baby")
+```
+
+###Erin's Findings:
+I, Erin Omyer, created a scatterplot between the Mother's height in comparison to the birth weight of their baby, but including the overall outlook at the number of times the mother has smoked. In the graph on the left, it shows the mother's that haven't ever smoked, showing a pattern of generally an average birth weigth. But, when you look at as the number of cigarettes a person smokes in a day, then the birth weight dropped. By displaying the scatterplot with the smooth line, it allows viewers to see the pattern easier with the line and the high number of people among the sample.
+
+
+
+
+```{r}
+ggplot(data = babies) +
+  geom_point(mapping = aes(x = bwtoz, y = number, color = Premature)) + labs(title = "Birthweight compared with # of Cigarettes Smoked by Mother")
+
+```
+
+###Jasmine's Findings:
+I found that by comparing the birthweights of babies to the number of cigarettes smoked a day for current and past smokers,there is a pattern that may become apparent while analyzing the prematurity of those births. There is a clear distinction between the number of birth weights recorded as the number of cigarettes smoked per day increases. Now including the premature factor; premature birth is typically associated lower birth weights, this graph supports that because we can see the color differentiation between premature births and births carried to term. I noticed that the increase in births carried to term were most common in non-smokers. However, the one distinction would be where we see a larger grouping of moderate birthweights with smokers who reported smoking 5 cigarettes a day. This information led me to see the decrease in premature weights as well with past smokers.
+
+
+
+
+```{r}
+ggplot(data = babies)+
+  geom_point(mapping = aes(x = bwtoz, y = mpregwt))+
+  geom_smooth(method = loess, mapping = aes(x = bwtoz, y = mpregwt), se = FALSE)+
+  facet_wrap(~smoke)+
+  labs(title = "Babies body weight in ounces versus mother's pregnancy weight")
+```
+
+###Richard's Findings:
+I, Richard Park, created a scatterplot comparing the Mother's pregnancy weight and the babies body weight (in ounces) at birth. I divided the graph into two seperate facets to help me compare mothers who smoked versus mothers who didn't smoke. In the graph containing the mothers who smoked(AKA the side labeled 1), my trendline showed that the babies birth weight eventually levels after the mother's pregnancy weight reaches a little over 130 pounds. However, in the graph containing the mothers who didn't smoke, the trendline never levels off at any point. For the first half, both trendlines closely resembled each other and both had a negative slope. This suggests that smoking might have an affect on a babies birth weight when the mother's pregnancy weight reaches 130 pounds, meaning babies can't get bigger/heavier after this threshold.
+
+
+
+
+```{r}
+ggplot(data = babies)+
+  geom_bar(mapping = aes(x=number, y = ..prop.., group = 1))+
+  facet_wrap(~med)+
+  labs(title = "# of Cigarettes Smoked grouped by Mother's Education level")
+```
+
+###Adam's Findings:
+I did a graph that represents how many cigarettes a mother smoked per day while pregnant, and I divided it up by the mother's education level. My graphs show that groups 1 & 2 which are no high school diploma, and high school degree nothing else, respectively, have the most prominent proportions of mothers who were consistently smoking cigarettes every day during pregnancy. Even though the more educated groups still had proportions of consistent smokers during pregnancy, their proportions were much lower, and their were more mothers that didn't smoke at all. I think this is a reflection on how better education has taught people that smoking during pregnancy is dangerous, and the more education you receive the less likely you are to consistently smoke cigarettes during pregnancy.
+
+
+
+
+###Overall Contribution
+As a team, we divided the work up evenly among all of us. For the team graph, Adam and Richard worked together to create a visualization to answer the two questions. Then, Erin answered the findings from the graph, then Jasmine provided the recommendation from our findings. Everyone completed their individual parts on their own and submitted to the lab. Richard asnwered the preliminary conclusion from Adam's visualization that he formed.
+The non-defaults we used to generate our plots were, for bar plots we used proportions for the y-axis with the group set to 1, and we also used facet_wrap on them to divide up the bar graphs. We also added color to some of them using the fill command.
+For our geom_point plots we used non-defaults such as facet_wrap, geom_smooth and the color command. For geom_smooth, we also set se=FALSE to remove the standard error, and we used method = loess to fit the curve to our graphs. We also used the labs() function to put titles on all of our graphs.
