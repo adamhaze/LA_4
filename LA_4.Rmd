@@ -42,7 +42,9 @@ ggplot(data = babies)+
 2. In our second graph, we created a scatterplot between gestational age and the weight of the baby when born. From our visualization, the relationship between smokers and non-smokers for the two variable share similar results. As gestation age increases, the weight of the baby increases. From the graph, smokers have a higher weight of birth as the gestational age increases. But, the data is similar to each other, so the correlation isn't strong. 
 
 ###Recommendation
-Our recommendation for a course of action is to conduct studies in the health of the children born to smokers and non smokers as they increase in age. By evaluating the health effects on the children as they get older, we are able to tell more specific information and detail for the effects of smoking during pregnancy. Such information would include a child having better or worse respitory issues such as asthma, or other birth defects that may not appear at birth, but over a longer period of time. 
+Our recommendation for a course of action is to conduct studies in the health of the children born to smokers and non smokers as they increase in age.
+By evaluating the health effects on the children as they get older, we are able to tell more specific information and detail for the effects of smoking during pregnancy.
+Such information would include a child having better or worse respitory issues such as asthma, or other birth defects that may not appear at birth, but over a longer period of time. 
 
 ```{r}
 ggplot(data = babies)+
